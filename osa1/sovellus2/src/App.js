@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      hyvä: 0,
+      neutraali: 0,
+      huono: 0
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h1>Anna palautetta</h1>
+        <button onClick={() => this.setState({hyvä : this.state.hyvä + 1})}>hyvä</button>
+        <button onClick={() => this.setState({neutraali : this.state.neutraali + 1})}>neutraali</button>
+        <button onClick={() => this.setState({huono : this.state.huono + 1})}>huono</button>
+        <h2>Statistiikka</h2>
+        <p>hyvä {this.state.hyvä}</p>
+        <p>neutraali {this.state.neutraali}</p>
+        <p>huono {this.state.huono}</p>
       </div>
     );
   }
